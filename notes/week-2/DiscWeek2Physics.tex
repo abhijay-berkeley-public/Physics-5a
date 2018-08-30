@@ -1,0 +1,162 @@
+\documentclass[11pt, notitlepage]{report}
+
+   \usepackage[margin=1in]{geometry}
+   \usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+   \newcommand{\N}{\mathbb{N}}
+   \newcommand{\Z}{\mathbb{Z}}
+   \newcommand{\R}{\mathbb{R}}
+   \newcommand{\A}{\alpha}
+   \newcommand{\abs}[1]{|#1|}
+   \newcommand{\ra}[1]{\overrightarrow{#1}}
+
+   \usepackage[parfill]{parskip}
+	\newenvironment{solution}{\paragraph{\small Solution:}}{\hfill}
+	\newenvironment{theorem}{\paragraph{Theorem:}}{\hfill}
+	\newenvironment{definition}{\paragraph{Definition:}}{\hfill}
+
+   \usepackage{pgfplots}
+   \usetikzlibrary{arrows}
+   \usetikzlibrary{decorations.markings}
+   \usetikzlibrary{datavisualization}
+   \usetikzlibrary{datavisualization.formats.functions}
+   %\usepackage{pstricks-add}
+
+	\pgfplotsset{every axis/.append style={
+	                   axis x line=middle,    % put the x axis in the middle
+	                   axis y line=middle,    % put the y axis in the middle
+	                   axis line style={<->,color=gray}, % arrows on the axis
+	                   xlabel={$x$},          % default put x on x-axis
+	                   ylabel={$y$},          % default put y on y-axis
+	           }}
+	\pgfplotsset{compat=1.15}
+   
+	\newcommand{\pgraph}[4]{
+		\begin{center}
+		
+		\begin{tikzpicture}
+		\begin{axis}[
+		   trig format plots=rad,
+		   axis equal,
+		   grid=both
+		]
+		\addplot [domain=#3:#4, variable=\t, samples=50, black, decoration={
+		   markings,
+		   mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+		   }, postaction=decorate]
+		({#1}, {#2});
+		
+		\end{axis}
+		\end{tikzpicture}
+		
+		\end{center}
+	}
+
+
+   \newcommand{\cgraph}[3]{
+	   \begin{center}
+	
+	   \begin{tikzpicture}
+	   \begin{axis}[
+	       trig format plots=rad,
+	       axis equal,
+	       grid=both
+	   ]
+	   \addplot [domain=#2:#3, variable=\x, samples=50, black, decoration={
+	       markings,
+	       mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+	       }, postaction=decorate]
+	   {#1};
+	
+	   \end{axis}
+	   \end{tikzpicture}
+	
+	   \end{center}
+	}
+
+
+	\newenvironment{problem}[2][Problem]{\begin{trivlist}
+	\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+	\makeatletter
+	\newcommand*{\toccontents}{\@starttoc{toc}}
+	\makeatother
+
+
+\begin{document}
+   \title{Physics 5a: Week 2 Discussion}
+   \author{Abhijay Bhatnagar}
+   \maketitle
+   \toccontents
+
+
+
+\setcounter{secnumdepth}{0} %% no numbering
+\section{Problems}
+
+\begin{problem}{K\&K 1.4 esque}
+
+\end{problem}
+
+\begin{problem}{K\&K 1.5 esque}
+	
+\end{problem}
+
+
+\begin{problem}{Law of Cosines Problem} \
+
+	Prove: \begin{equation}
+  a \cdot b = \|a\|\|b\|cos\theta
+\end{equation}
+
+Using the Law of Cosines...
+
+	\begin{align*}
+		|a|^2 \cdot \abs{b}^2 - 2|a||b|cos\theta \\ &= \abs{\ra{a}-\ra{b}} \\
+		\abs{a} \cdot \abs{b} &= \abs{a}\abs{b}cos\theta
+	\end{align*}
+
+\end{problem}
+
+\begin{problem}{sin problems}
+	
+\end{problem}
+
+\begin{definition}
+	\begin{align*}
+	e^x &\implies \text{$x$ is dimension-less} \\
+	cos(x) &\implies \text{$x$ is dimension-less/radians}\\
+	log(x) &\implies \text{$x$ is dimension-less}	
+	\end{align*}
+
+\end{definition}
+
+\begin{problem}{7}
+
+	Given: \\
+	a frequency: $[f] = \frac{1}{T}$, \\
+	a speed: $[v] = \frac{L}{T}$, \\
+	an L: $[h]=\frac{ML^2}{T}$, \\
+	
+	define a standard set of units of length, time and mass in terms of f, v, h.
+	\begin{align*}
+		f &= 1/s \\
+		v &= m/s \\
+		h &= gm^2/s
+	\end{align*}
+
+\end{problem}
+
+\begin{problem}{8} 
+
+Find radius that you have to squeeze the earth into so that even light cannot escape.
+
+	We have $M$, $c$, $G$ as our information.
+	
+	\begin{align*}
+		L^1 &= M^\alpha + c^\beta + G^\gamma \\
+			&= m^\alpha + \frac{L}{T}^{\beta} + \left(\frac{L^3}{MT^2}\right)^\gamma 
+	\end{align*}
+\end{problem}
+
+\end{document}

@@ -1,0 +1,178 @@
+\documentclass[11pt, notitlepage]{report}
+
+   \usepackage[margin=1in]{geometry}
+   \usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+   \newcommand{\N}{\mathbb{N}}
+   \newcommand{\Z}{\mathbb{Z}}
+   \newcommand{\R}{\mathbb{R}}
+   \newcommand{\A}{\alpha}
+   \usepackage[parfill]{parskip}
+	\newenvironment{solution}{\paragraph{\small Solution:}}{\hfill}
+	\newenvironment{theorem}{\paragraph{Theorem:}}{\hfill}
+	\newenvironment{definition}{\paragraph{Definition:}}{\hfill}
+
+   \usepackage{pgfplots}
+   \usetikzlibrary{arrows}
+   \usetikzlibrary{decorations.markings}
+   \usetikzlibrary{datavisualization}
+   \usetikzlibrary{datavisualization.formats.functions}
+   %\usepackage{pstricks-add}
+
+	\pgfplotsset{every axis/.append style={
+	                   axis x line=middle,    % put the x axis in the middle
+	                   axis y line=middle,    % put the y axis in the middle
+	                   axis line style={<->,color=gray}, % arrows on the axis
+	                   xlabel={$x$},          % default put x on x-axis
+	                   ylabel={$y$},          % default put y on y-axis
+	           }}
+	\pgfplotsset{compat=1.15}
+   
+	\newcommand{\pgraph}[4]{
+		\begin{center}
+		
+		\begin{tikzpicture}
+		\begin{axis}[
+		   trig format plots=rad,
+		   axis equal,
+		   grid=both
+		]
+		\addplot [domain=#3:#4, variable=\t, samples=50, black, decoration={
+		   markings,
+		   mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+		   }, postaction=decorate]
+		({#1}, {#2});
+		
+		\end{axis}
+		\end{tikzpicture}
+		
+		\end{center}
+	}
+
+
+   \newcommand{\cgraph}[3]{
+	   \begin{center}
+	
+	   \begin{tikzpicture}
+	   \begin{axis}[
+	       trig format plots=rad,
+	       axis equal,
+	       grid=both
+	   ]
+	   \addplot [domain=#2:#3, variable=\x, samples=50, black, decoration={
+	       markings,
+	       mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+	       }, postaction=decorate]
+	   {#1};
+	
+	   \end{axis}
+	   \end{tikzpicture}
+	
+	   \end{center}
+	}
+
+
+	\newenvironment{problem}[2][Problem]{\begin{trivlist}
+	\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+	\makeatletter
+	\newcommand*{\toccontents}{\@starttoc{toc}}
+	\makeatother
+
+
+\begin{document}
+   \title{Math 54: Week 2 Discussion}
+   \author{Abhijay Bhatnagar}
+   \maketitle
+   \toccontents
+
+
+
+\setcounter{secnumdepth}{0} %% no numbering
+\section{Review From Last Week}
+
+Configuration $\{q_i\} \implies$ picture of system (no $v$.) \\
+Trajectory $\{q_i(t)\} \implies$ movie of system: $v=\frac{dq}{dt}, a= \frac{d^2q}{dt^2}$ \\
+Newton $\{{q_i(t)\, v_i(0)} \implies$ $\{q_i(t)\}$ (Phase space, config not enough)
+
+\section{Kinematics}
+
+\subsection{Taylor series expansion for velocity..?}
+
+\begin{align}
+	v(t) &= -\frac{g}{a}(1-e^(\alpha t)) \\
+	v(0) &= 0
+\end{align}
+
+T.E. $= e^(-\alpha t)$
+
+Use Taylor series approximation for T.E. 
+\begin{align}
+	v(t) &= -\frac{g}{a}(1-(1-\A t + 1/2 \A^2t^2+...)) \\
+		 &= -gt + \frac{g}{2}\A t
+\end{align}
+
+The taylor expansion is good when $x$ is small $\implies \A t << 1 \implies t << \frac{1}{\A}$.
+
+\subsection{Visualizations of positional derivatives}
+
+$x(t) =$ \cgraph{-(x-2)^2+2}{2-sqrt(2)}{2+sqrt(2)}
+$v(t) =$ \cgraph{-2*x}{2-sqrt(2)}{2+sqrt(2)}
+$a(t) =$ \cgraph{-2}{2-sqrt(2)}{2+sqrt(2)}
+
+\newpage
+
+\subsection{Derivative exercises}
+
+\begin{enumerate}
+	\item Exercise in finding 1st and 2nd derivatives of $x(t) = cost(\A t)$
+	\item Exercise in finding 1st and 2nd derivatives of $x(t) = \frac{1}{2} at^2$
+	\item Exercise in finding 1st and 2nd derivatives of $x(t) = \frac{1}{2} at^2 + v_0 t + x_0$
+
+\end{enumerate}
+
+\subsection{Integral exercise}
+
+\begin{enumerate}
+	\item Exercise in finding 1st and 2nd antiderivatives of $x(t) = x_0$
+
+\end{enumerate}
+
+\subsection{Considering Dimensions}
+
+\begin{align}
+	\overrightarrow{r}(t) &= (x(t), y(t)) \\
+						  &= x(t)\hat{i} + y(t)\hat{j}
+\end{align}
+
+When converting from different coordinate perspectives:
+
+
+\begin{align}
+	\overrightarrow{r}(t) &= x(t)\hat{i} + y(t)\hat{j} = \tilde{x}\tilde{\hat{i}} + \tilde{y}\tilde{\hat{j}} \\
+	x &\neq \tilde{x}\\
+	y &\neq \tilde{y} \\
+	\text{... get from notes}
+\end{align}
+
+\subsection{Vectors}
+
+\begin{enumerate}
+	\item Adding $\overrightarrow{v}+\overrightarrow{u}$
+	\item Length $\|\overrightarrow{v}\|$
+	\item Dot $\overrightarrow{v}\cdot\overrightarrow{u}$
+	\item Cross $\overrightarrow{v} \text{x} \overrightarrow{u}$
+\end{enumerate}
+
+
+\newpage
+
+\subsection{Ball-in-cup-esque exercise}
+
+\scalebox{0.5}
+
+Exercise in finding when a ball shot
+
+\cgraph{-0.5*(x-2)^2+1}{2-sqrt(2)}{2+sqrt(2)}
+
+\end{document}

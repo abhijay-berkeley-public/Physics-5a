@@ -1,0 +1,9 @@
+\contentsline {section}{Review From Last Week}{1}
+\contentsline {section}{Kinematics}{1}
+\contentsline {subsection}{Taylor series expansion for velocity..?}{1}
+\contentsline {subsection}{Visualizations of positional derivatives}{2}
+\contentsline {subsection}{Derivative exercises}{3}
+\contentsline {subsection}{Integral exercise}{3}
+\contentsline {subsection}{Considering Dimensions}{3}
+\contentsline {subsection}{Vectors}{3}
+\contentsline {subsection}{Ball-in-cup-esque exercise}{4}
