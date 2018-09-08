@@ -1,0 +1,165 @@
+\documentclass[11pt, notitlepage]{report}
+
+	\usepackage[margin=1in]{geometry}
+	\usepackage{amsmath,amsthm,amssymb,amsfonts}
+	\usepackage{enumitem}
+	
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\A}{\alpha}
+	\newcommand{\ora}[1]{\overrightarrow{#1}}
+	\usepackage[parfill]{parskip}
+	\usepackage{mathtools}
+	\newenvironment{solution}{\paragraph{\small Solution:}}{\hfill}
+	\newenvironment{theorem}{\paragraph{Theorem:}}{\hfill}
+	\newenvironment{definition}{\paragraph{Definition:}}{\hfill}
+	\newenvironment{problem}[2][Problem]{\begin{trivlist}
+	\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+	\usepackage{pgfplots}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{datavisualization}
+	\usetikzlibrary{datavisualization.formats.functions}
+	%\usepackage{pstricks-add}
+
+	\pgfplotsset{every axis/.append style={
+	                   axis x line=middle,    % put the x axis in the middle
+	                   axis y line=middle,    % put the y axis in the middle
+	                   axis line style={<->,color=gray}, % arrows on the axis
+	                   xlabel={$x$},          % default put x on x-axis
+	                   ylabel={$y$},          % default put y on y-axis
+	           }}
+	\pgfplotsset{compat=1.15}
+	
+	\newcommand{\pgraph}[4]{
+		\begin{center}
+		
+		\begin{tikzpicture}
+		\begin{axis}[
+		   trig format plots=rad,
+		   axis equal,
+		   grid=both
+		]
+		\addplot [domain=#3:#4, variable=\t, samples=50, black, decoration={
+		   markings,
+		   mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+		   }, postaction=decorate]
+		({#1}, {#2});
+		
+		\end{axis}
+		\end{tikzpicture}
+		
+		\end{center}
+	}
+
+
+   \newcommand{\cgraph}[3]{
+	   \begin{center}
+	
+	   \begin{tikzpicture}
+	   \begin{axis}[
+	       trig format plots=rad,
+	       axis equal,
+	       grid=both
+	   ]
+	   \addplot [domain=#2:#3, variable=\x, samples=50, black, decoration={
+	       markings,
+	       mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+	       }, postaction=decorate]
+	   {#1};
+	
+	   \end{axis}
+	   \end{tikzpicture}
+	
+	   \end{center}
+	}
+
+
+	
+	\makeatletter
+	\newcommand*{\toccontents}{\@starttoc{toc}}
+	\makeatother
+
+
+\begin{document}
+   \title{Physics 5a: Homework 1}
+   \author{Abhijay Bhatnagar}
+   \maketitle
+   \toccontents
+
+
+
+\setcounter{secnumdepth}{0} %% no numbering
+\section{Newtons Laws}
+
+K.K. Ch. 2
+
+\subsection{Known properties}
+
+We know:
+
+Objects have \textbf{mass}
+
+Four fundamental forces:
+\textbf{Gravity, Electromagnetic Force, Strong Force, Weak Force}
+
+\subsection{First Law}
+
+In English: An object at rest stays at rest, an object in motion stays in motion.
+
+More mathematical rigorous: If $\ora{F}_i=0$, then $\ora{v}_i$ is constant $(\ora{a}_i=0)$. (True only in an "inertial frame")
+
+
+\subsubsection{Inertial Frames}
+
+Graph outlining R(t) to a point that extends another vector r-prime, which has the combined vector of r.
+
+R is location of plane.
+\begin{align*}
+\ora{r}(t) &= \ora{R}(t)+\ora{r'}(t)  \\
+\ora{v}(t) &= d/dt\ora{R}(t)+d/dt\ora{r'}(t) = V(t) + v'(t) \\
+\ora{a}(t) &= d/dt\ora{V}(t)+\ora{a'}(t) 
+\end{align*}
+
+Case 1) $R(t) = R_0+tV => a(t) = a'(t)$
+
+Case 2) $R(t) = R_0 + 1/2t^2 \ora{A}
+=> a(t) \neq a'(t)$
+
+In english: People can disagree whether or not things are moving, i.e. frames of reference, and a frame of reference is inertial if it doesn't start accelerating in the frame without forces from the frame.
+
+\subsection{Second Law}
+
+$\ora{F}_i=m_i\ora{a}_i$
+
+\[\ora{F}_i= F_{2->1} (r_1,r_2,v_1,v_2) + F_{3->1} (r_1,r_3,v_1,v_3)
+= \sum_{i}{F_{i->1}} \]
+
+
+\subsubsection{Example based elaborations}
+
+Gravity: \begin{align*}
+	F_{E->1}=-m_ig\hat{j}
+\end{align*}
+
+Diagram of tree and earth. Force $a=F_{earth -> apple}$ pulling down on  the apple, a little algebra later you have $a=-g\hat{j}$.\\
+
+Contact force: 
+
+Ball on slope diagram. Force is pushing on ball, then another diagram showing a ball on a vertical wall showing how the contact isn't pushing in that case. The contact force of $\ora{F}_{1->2} = \hat{n} \cdot f$. 
+
+More examples of normal force.
+
+\subsubsection{Tension}
+
+You can only ever pull with a rope. Tension can be worked out with normal forces and seeing what things aren't falling, i.e. if gravity is pulling down on a hanging block, the rope must be pulling up.
+
+$F_{s->1}=T\hat{t}$.
+
+\subsection{Third Law}
+\subsection{Fourth Law}
+
+
+\end{document}
