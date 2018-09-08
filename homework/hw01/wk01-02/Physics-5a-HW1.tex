@@ -1,0 +1,228 @@
+\documentclass[11pt, notitlepage]{report}
+
+	\usepackage[margin=1in]{geometry}
+	\usepackage{amsmath,amsthm,amssymb,amsfonts}
+	\usepackage{enumitem}
+	
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\A}{\alpha}
+	\usepackage[parfill]{parskip}
+	\newenvironment{solution}{\paragraph{\small Solution:}}{\hfill}
+	\newenvironment{theorem}{\paragraph{Theorem:}}{\hfill}
+	\newenvironment{definition}{\paragraph{Definition:}}{\hfill}
+	\newenvironment{problem}[2][Problem]{\begin{trivlist}
+	\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+	
+	\usepackage{pgfplots}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{datavisualization}
+	\usetikzlibrary{datavisualization.formats.functions}
+	%\usepackage{pstricks-add}
+
+	\pgfplotsset{every axis/.append style={
+	                   axis x line=middle,    % put the x axis in the middle
+	                   axis y line=middle,    % put the y axis in the middle
+	                   axis line style={<->,color=gray}, % arrows on the axis
+	                   xlabel={$x$},          % default put x on x-axis
+	                   ylabel={$y$},          % default put y on y-axis
+	           }}
+	\pgfplotsset{compat=1.15}
+	
+	\newcommand{\pgraph}[4]{
+		\begin{center}
+		
+		\begin{tikzpicture}
+		\begin{axis}[
+		   trig format plots=rad,
+		   axis equal,
+		   grid=both
+		]
+		\addplot [domain=#3:#4, variable=\t, samples=50, black, decoration={
+		   markings,
+		   mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+		   }, postaction=decorate]
+		({#1}, {#2});
+		
+		\end{axis}
+		\end{tikzpicture}
+		
+		\end{center}
+	}
+
+
+   \newcommand{\cgraph}[3]{
+	   \begin{center}
+	
+	   \begin{tikzpicture}
+	   \begin{axis}[
+	       trig format plots=rad,
+	       axis equal,
+	       grid=both
+	   ]
+	   \addplot [domain=#2:#3, variable=\x, samples=50, black, decoration={
+	       markings,
+	       mark=between positions 0.2 and 1 step 4em with {\arrow [scale=1.5]{stealth}}
+	       }, postaction=decorate]
+	   {#1};
+	
+	   \end{axis}
+	   \end{tikzpicture}
+	
+	   \end{center}
+	}
+
+
+	
+	\makeatletter
+	\newcommand*{\toccontents}{\@starttoc{toc}}
+	\makeatother
+
+
+\begin{document}
+   \title{Physics 5a: Homework 1}
+   \author{Abhijay Bhatnagar}
+   \maketitle
+   \toccontents
+
+
+
+\setcounter{secnumdepth}{0} %% no numbering
+\section{Assignment}
+
+\hfill There are 13 problems worth a total of 130 points, but the maximum score you can achieve is 100 points.  So if you are sure of your answers, you can get away with doing as few as 9 problems; or do some extras as a “cushion.”  Remember - the clearer your presentation is, the easier it is for us to give you points!
+
+\section{Solutions}
+
+%\begin{enumerate}
+%\item{5pts:}
+
+\subsection{Problem 1. (5pts)}
+
+K.K. 1.1
+
+\vskip 0.1in
+
+Given: $\textbf{A} = (2\hat{i}-3\hat{j}+7\hat{k}), \textbf{B} = (5\hat{i}+\hat{j}+2\hat{k}). $
+
+\vskip 0.3in
+
+\begin{enumerate}[label=(\alph*)]
+	\item \textbf{A + B} = $(7\hat{i}-2\hat{j}+9\hat{k})$
+	\item \textbf{A - B} = $(-3\hat{i}-4\hat{j}+5\hat{k})$
+	\item 
+		\begin{align}
+		\textbf{A $\cdot$ B} &= (2\hat{i}-3\hat{j}+7\hat{k}) \cdot (5\hat{i}+\hat{j}+2\hat{k}) \\ 
+		&= (2*5)-(3) + (7*2) \\
+		&= 21
+		\end{align}
+	\item \begin{align}
+		\textbf{A x B} &= (a_2b_3-a_3b_2)i-(a_1b_3-a_3b_1)j+(a_1b_2-a_2b_1)k \\
+		&= (-3*2-7*1)i-(2*2-7*5)j+(2*1+15)k \\
+		&= (-13i+31j+17k)
+	\end{align}
+\end{enumerate}
+
+\subsection{Problem 2. (5pts)}
+
+K.K. 1.8
+
+\vskip 0.1in
+
+Given: $\hat{a}, \hat{b}$ making $\theta, \phi$,
+
+Prove: $\hat{a} = cos(\theta)\hat{i}+sin(\theta)\hat{j}, \hat{b} = cos(\phi)\hat{i}+sin(\phi)\hat{j}$
+
+\vskip 0.3in
+
+\subsection{Problem 3. (10pts)}
+
+K.K. 1.13
+
+Let \textbf{A} be an arbitrary vector and let $\hat{n}$ be a unit vector in some fixed direction. Show that \textbf{A} = ( \textbf{A} · $\hat{n}$ )$\hat{n}$ + ( $\hat{n}$ × \textbf{A} ) x $\hat{n}$.
+
+\vskip 0.1in
+
+\vskip 0.3in
+
+\subsection{Problem 4. (10pts)}
+K.K. 1.14
+
+\subsection{Problem 5. (10pts)}
+
+The relation between Cartesian $(x, y, z)$ and spherical polar $(r, \theta, \phi)$ coordinates is:
+\begin{align*}
+x &= r \sin \theta \cos \phi \\
+y &= r \sin \theta \sin \phi \\
+z &= r  \cos \theta 
+\end{align*}
+Two spaceships trace out the trajectories $(r_1, \theta_1, \phi_1) = ( 2 + \cos( \omega_1 t), \pi/2, \omega_2 t)$, and $(r_2, \theta_2, \phi_2) = (1, \omega_3 t, 0)$, where $t$ is ``time,'' and $\omega_j = \sqrt{j}$ for $j = 1, 2, 3$. If you wait arbitrarily long, what is the closest distance between the two spaceships?
+
+Hint: the answer would be quite different if the  $\omega_j$ were chosen to be rational numbers.
+
+\subsection{Problem 6.}
+%\item{20pts:} If the air velocity (velocity with respect to the air) of an airplane is $\mathbf{u}$, and the wind velocity with respect to the ground is $\mathbf{w}$, then the ground velocity $\mathbf{v}$ of the airplane is $\mathbf{v} = \bf{u} + \bf{w}$.
+%An airplane flies a straight course (with respect to the ground) from P to Q and then back to P, with a constant air speed $|\mathbf{u}| = U_0$, regardless of the wind.
+%If the distance from $P$ to $Q$ is $L$, find the time required $t$ for one round trip, under the following conditions:
+%
+%(a) No wind.
+%
+%(b) Wind of speed $W_0$ blowing from P to Q.
+%
+%(c) Wind of speed $W_0$ blowing perpendicular to a
+%line connecting P and Q.
+%
+%(d) Wind of speed $W_0$ blowing at an angle $\theta$ from a
+%line connecting P and Q.
+%
+%(e) Show that the round trip flying time is always
+%least for part (a).
+%
+%(f) What happens to the answers to (b)-(d) when
+%$W_0 > U_0$? Interpret this limiting condition physically.
+%
+%(g) Using the Taylor expansion, obtain an expression for part (d) valid to second order in $W_0$ (e.g., keep terms up to and including $W_0^2$). The expansions $\sqrt{1+x} = 1 + \frac{x}{2} + \cdots$ and $\frac{1}{1-x} = 1 + x + \cdots$ may prove useful, or refer to KK Note 1.3.
+%
+%\vspace{5mm}
+%
+%\item{10 pts:} When helicopter propellers rotate they  generate ``lift'',  i.e., a force $F_{L}$ pushing the helicopter upward. The lift depends on the size of the propeller blades $\ell$ (units: length); the mass-density of air $\rho$; and the rotations per second $f$ of the blades.
+%
+%a) Up to an unknown constant of proportionality, how does $F_L$ depend on $\ell, \rho, f$? (NB: in physics jargon, we say  ``How does $F_L$ \emph{scale} with $\ell, \rho, f$?'')
+%
+%b) For each of $\ell, \rho, f$, use a ``simplifying limit'' to argue physically why the lift must depend on that quantity.
+%
+%\item{10 pts}:
+%
+%When an object (like a car) moves through a fluid (like air) at high velocity,  then, up to a dimensionless coefficient, the  force on the object due to drag ($F_D$) depends only on the density of the fluid ($\rho$), the velocity of the object ($v$), and the cross-sectional area of the object perpendicular to the direction of motion ($A$). 
+%
+%a) How does $F_D$ scale with $\rho, v, A$?
+%
+%b)  A gallon of gasoline contains about $10^8$ J of energy. \emph{If} the miles-per-gallon efficiency of a car depended only on this drag force, how would MPG scale with $v$?  (Note: real-world MPG figures are more complicated, because the efficiency of the combustion engine  depends on the RPM and other factors.)
+%
+%c) An object can have many different shapes while maintaining the same cross-sectional area $A$; for example, you can adjust the slope of a car's windshield. Can the drag force depend on the shape of the object, holding fixed $\rho, v, A$?
+%
+%\item{10 pts:} A person throws a ball with speed $v$ off a cliff of height $h$ at an angle of their choosing. It falls downward at acceleration $g$ due to gravity.
+%Assuming that one of the following expressions is the maximum horizontal distance the ball can travel before it hits the ground, using what you know about dimensions and limiting cases, which is it? 
+%\begin{equation*}
+%\frac{v h}{g}, \frac{g h^2}{v^2}, \frac{v^2}{g}, \sqrt{\frac{v^2 h}{g}}, \frac{v^2}{g} \sqrt{1 + \frac{2 g h}{v^2}}, \frac{v^2 / g}{1 - \frac{2 g h}{v^2}}
+%\end{equation*}
+%
+%
+%\vspace{5mm}
+%
+%\item{10 pts:} K.K. 1.16
+%
+%\item{10 pts:} K.K. 1.23
+%
+%\item{10 pts:} K.K. 1.24 (Note: these should be given as vectors).
+%
+%\item{10 pts:} K.K. 1.27
+%
+%
+%
+%\end{enumerate}
+
+
+\end{document}
